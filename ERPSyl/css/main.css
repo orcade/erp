@@ -19,7 +19,7 @@ ul a{
   a{
     color:#225a68;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
     margin-right: 15px;
 
   }
@@ -27,14 +27,14 @@ ul a{
   p{
     color:#225a68;
     background-color: white;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .edit{
     color:green;
     font-size:15px;
   }
-  
+
   .add{
     color:orangered;
     font-size:15px;
@@ -42,5 +42,10 @@ ul a{
 
   .delete{
     color:red;
+    font-size:15px;
+  }
+
+  .retour{
+    color:blue;
     font-size:15px;
   }

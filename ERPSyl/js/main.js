@@ -10,7 +10,8 @@ const routes = [
     {path: '/product/list', name: 'product-list', component: ProductList},
     {path: '/product/detail/:id', name: 'product-detail', component:ProductDetail},
     {path: '/product/add/:id', name: 'product-add', component:ProductAdd},
-    {path: '/product/edit/:id', name: 'product-edit', component:ProductEdit}
+    {path: '/product/edit/:id', name: 'product-edit', component:ProductEdit},
+    {path: '/product/delete/:id', name: 'product-delete', component:ProductDelete}
 ];
 
 // 3. Create the router instance and pass the `routes` option

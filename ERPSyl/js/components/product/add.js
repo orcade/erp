@@ -1,19 +1,19 @@
 const ProductAdd = {
         template: `
-        
+
         <div>
-        
-        <h1>Produit n° {{$route.params.products}}</h1>
-        
-        
+
+        <h1>Ajouter des produits</h1>
+        <router-link class="retour" to="/">Retour</router-link>
+
         <div v-if="loading" class="loading">
           Loading...
         </div>
-        
+
         <div v-if="error" class="error">
           {{ error }}
         </div>
-        
+
         <p v-if="item">
             Id Produit: {{ item.id_product }} <br />
             Nom: {{ item.name}} <br />
@@ -33,9 +33,9 @@ const ProductAdd = {
         created() {
             this.fetchData();
         },
-        
+
         methods: {
-            
+
             fetchData() {
                 this.loading = false;
                 const params = new URLSearchParams();

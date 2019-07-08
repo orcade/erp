@@ -1,26 +1,18 @@
 const ProductEdit = {
         template: `
         <div>
-        
-        <h1>Modifier les produits</h1>
-        
-        
-        
+
+        <h1>Mettre à jour les produits {{$route.params.products}}</h1>
+
+          <router-link class="retour" to="/">Retour</router-link>
+
         <div v-if="loading" class="loading">
           Loading...
         </div>
-        
+
         <div v-if="error" class="error">
           {{ error }}
         </div>
-
-        <div>
-            <input v-model="itemName" v-on:keyup.enter="postItemName" placeholder="Modifier le nom du produits">
-            <label>Nom: {{ item.name}}</label><br />
-        </div>
-
-        <button @click.prevent='postResponse'>Envoyer</button>
-
 
         <p v-if="item">
             Id Produit: {{ item.id_product }} <br />
@@ -31,7 +23,7 @@ const ProductEdit = {
         </p>
         </div>
         `,
-        
+
         data() {
             return {
                 loading: true,
@@ -42,15 +34,15 @@ const ProductEdit = {
         created() {
             this.fetchData();
         },
-        
+
         methods: {
-            
+
             fetchData() {
                 this.loading = false;
                 const params = new URLSearchParams();
                 params.append('id', this.$route.params.id);
                 //this.$route.params.id
-                axios.post('http://files.sirius-school.be/products-api/?action=getDetail',params).then(response => {
+                axios.post('http://files.sirius-school.be/products-api/?action=updateProduct',params).then(response => {
                     console.log(response.data);
                     this.item = response.data.product;
                 });

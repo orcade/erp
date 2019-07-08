@@ -4,8 +4,6 @@ const ProductEdit = {
 
         <h1>Mettre à jour les produits {{$route.params.products}}</h1>
 
-          <router-link class="retour" to="/">Retour</router-link>
-
         <div v-if="loading" class="loading">
           Loading...
         </div>
@@ -14,6 +12,10 @@ const ProductEdit = {
           {{ error }}
         </div>
 
+        <router-link class="retour" to="/">Retour</router-link>
+
+
+    
         <p v-if="item">
             Id Produit: {{ item.id_product }} <br />
             Nom: {{ item.name}} <br />

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link href="./css/main.css" rel="stylesheet" media="all" type="text/css">
+        <title>ERP</title>
+    </head>
+    <body>
+        <div id="app">
+
+            <router-link to="/">Liste des produits</router-link>
+      
+            <router-view></router-view>
+        </div>
+
+
+        <!-- include vue -->
+        <script src="js/libs/vue.min.js"></script>
+
+        <!-- vue rooter -->
+        <script src="js/libs/vue-router.min.js"></script>
+
+        <!-- axios -->
+        <script src="js/libs/axios.min.js"></script>
+
+        <!-- components -->
+        <script src="js/components/product/list.js"></script>
+        <script src="js/components/product/detail.js"></script>
+        <script src="js/components/product/add.js"></script>
+        <script src="js/components/product/edit.js"></script>
+
+
+        <!-- main -->
+        <script src="js/main.js"></script>
+
+    </body>
+</html>

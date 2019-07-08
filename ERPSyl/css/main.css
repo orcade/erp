@@ -1,0 +1,46 @@
+body{
+    background-color:#e8f8fc ;
+    color:#225a68;
+    margin: 0;
+}
+
+h1{
+  color:#225a68;
+  background-color: white;
+
+
+}
+
+ul a{
+  color:#225a68;
+  text-decoration: none;
+}
+
+  a{
+    color:#225a68;
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+
+  }
+
+  p{
+    color:#225a68;
+    background-color: white;
+    font-size: 30px;
+  }
+
+  .edit{
+    color:green;
+    font-size:15px;
+  }
+  
+  .add{
+    color:orangered;
+    font-size:15px;
+  }
+
+  .delete{
+    color:red;
+    font-size:15px;
+  }

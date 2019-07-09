@@ -2,49 +2,68 @@ const ProductAdd = {
         template: `
 
         <div>
+    <h1>Produit n° {{ $route.params.id }}</h1>
 
-        <h1>Ajouter des produits</h1>
-        <router-link class="retour" to="/">Retour</router-link>
+    {{ message }}
 
-        <div v-if="loading" class="loading">
-          Loading...
+    <div v-if="error" class="error">
+      {{ error }}
+    </div>
+    <div>
+        <div>
+            <label>Nom</label>
+            <input type="text" v-model="item.name" />
         </div>
-
-        <div v-if="error" class="error">
-          {{ error }}
+        <div>
+            <label>Réf.</label>
+            <input type="text" v-model="item.ref" />
         </div>
-
-        <p v-if="item">
-            Id Produit: {{ item.id_product }} <br />
-            Nom: {{ item.name}} <br />
-            Référence: {{ item.ref}} <br />
-            Quantity: {{ item.qty}} <br />
-            Prix: {{ item.price}} <br />
-        </p>
+        <div>
+            <label>Prix</label>
+            <input type="text" v-model="item.price" />
         </div>
-        `,
-        data() {
-            return {
-                loading: true,
-                item: null,
-                error: null
-            }
-        },
-        created() {
-            this.fetchData();
-        },
+        <div>
+            <label>Qté</label>
+            <input type="text" v-model="item.qty" />
+        </div>
+        <div>
+            <button v-on:click="sendModif">Valider</button>
+        </div>
+    </div>
+    <router-link to="/product/list">Retour</router-link>
+</div>
+`,
+    data() {
+        return {
+            loading: true,
+            item: {},
+            error: null,
+            message: ''
+        }
+    },
 
-        methods: {
+    methods: {
+        sendModif() {
+            const params = new URLSearchParams();
+            params.append('name', this.product.name);
+            params.append('ref', this.product.ref);
+            params.append('qty', this.product.qty);
+            params.append('price', this.product.price);
 
-            fetchData() {
+            axios.post('http://files.sirius-school.be/products-api/?action=deleteProduct', params).then(response => {
+                console.log(response);
                 this.loading = false;
-                const params = new URLSearchParams();
-                params.append('id', this.$route.params.id);
-                //this.$route.params.id
-                axios.post('http://files.sirius-school.be/products-api/?action=getDetail',params).then(response => {
-                    console.log(response.data);
-                    this.item = response.data.product;
-                });
-            }
+                this.item = response.data.product;
+                console.log(response);
+
+                if(response.data.status == 'success') {
+                    this.message = 'Produit bien mis à jour!';
+                }
+                else
+                {
+                    this.message = 'Erreur, Reessayez plus tard!';
+                }
+            });
         }
-        }
+    }
+}

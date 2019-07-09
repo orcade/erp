@@ -23,7 +23,7 @@ const ProductList = {
     data() {
         return {
             loading: true,
-            products: null,
+            products:[],
             error: null
         }
     },

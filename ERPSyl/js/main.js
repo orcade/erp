@@ -7,11 +7,11 @@
 // 2. Define some routes
 const routes = [
     {path: '/', name: 'home', component: ProductList},
-    {path: '/product/list', name: 'product-list', component: ProductList},
-    {path: '/product/detail/:id', name: 'product-detail', component:ProductDetail},
-    {path: '/product/add/:id', name: 'product-add', component:ProductAdd},
-    {path: '/product/edit/:id', name: 'product-edit', component:ProductEdit},
-    {path: '/product/delete/:id', name: 'product-delete', component:ProductDelete}
+    {path: '/product/product-list', name: 'product-list', component: ProductList},
+    {path: '/product/product-detail/:id', name: 'product-detail', component:ProductDetail},
+    {path: '/product/product-add/:id', name: 'product-add', component:ProductAdd},
+    {path: '/product/product-edit', name: 'product-edit', component:ProductEdit},
+    {path: '/product/product-delete/:id', name: 'product-delete', component:ProductDelete}
 ];
 
 // 3. Create the router instance and pass the `routes` option

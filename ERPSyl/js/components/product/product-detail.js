@@ -26,9 +26,9 @@ const ProductDetail = {
 <ul v-if="products>
     <li v-for="item in products">
         <router-link :to="{ name: 'product-detail', params: { id: item.id_product }}">{{ item.name }} : {{ item.id_product }}</router-link>
-        <router-link class="edit" to=/product/edit/:id>Mettre à jour</router-link>
-        <router-link class="add" to=/product/add/:id>Ajouter</router-link>
-        <router-link class="delete" to=/product/delete/:id>Supprimer</router-link>
+        <router-link class="edit" to=/product/product-edit>Mettre à jour</router-link>
+        <router-link class="add" to=/product/product-add/:id>Ajouter</router-link>
+        <router-link class="delete" to=/product/product-delete/:id>Supprimer</router-link>
     </li>
 </ul>
   <router-link class="retour" to="/">Retour</router-link>
@@ -40,7 +40,7 @@ const ProductDetail = {
 data() {
     return {
         loading: true,
-        item: null,
+        item:{},
         error: null
     }
 },
@@ -56,7 +56,7 @@ methods: {
         params.append('id', this.$route.params.id);
         //this.$route.params.id
         axios.post('http://files.sirius-school.be/products-api/?action=getDetail',params).then(response => {
-            console.log(response.data);
+            console.log('test');
             this.item = response.data.product;
         });
     }

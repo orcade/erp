@@ -4,7 +4,6 @@ const ProductAdd = {
         <div>
     <h1>Produit n° {{ $route.params.id }}</h1>
 
-    {{ message }}
 
     <div v-if="error" class="error">
       {{ error }}
@@ -27,10 +26,16 @@ const ProductAdd = {
             <input type="text" v-model="item.qty" />
         </div>
         <div>
-            <button v-on:click="sendModif">Valider</button>
+            <button class="valider" v-on:click="sendModif">Valider</button>
+
+            <button>
+            <router-link class= "valider" to="/product/product-list">Retour</router-link>
+            <button>
         </div>
     </div>
-    <router-link to="/product/list">Retour</router-link>
+  
+
+    {{ message }}
 </div>
 `,
     data() {
@@ -38,30 +43,32 @@ const ProductAdd = {
             loading: true,
             item: {},
             error: null,
-            message: ''
+            message: '',
+            id:null
         }
     },
 
     methods: {
         sendModif() {
             const params = new URLSearchParams();
-            params.append('name', this.product.name);
-            params.append('ref', this.product.ref);
-            params.append('qty', this.product.qty);
-            params.append('price', this.product.price);
+            params.append('name', this.item.name);
+            params.append('ref', this.item.ref);
+            params.append('qty', this.item.qty);
+            params.append('price', this.item.price);
 
-            axios.post('http://files.sirius-school.be/products-api/?action=deleteProduct', params).then(response => {
+            axios.post('http://files.sirius-school.be/products-api/?action=insertProduct', params).then(response => {
                 console.log(response);
                 this.loading = false;
-                this.item = response.data.product;
-                console.log(response);
+
+                //this.item = response.data.product;
+                //console.log(response);
 
                 if(response.data.status == 'success') {
-                    this.message = 'Produit bien mis à jour!';
+                    this.message = 'Produit ajouté';
                 }
                 else
                 {
-                    this.message = 'Erreur, Reessayez plus tard!';
+                    this.message = 'Veuillez, Reessayez plus tard svp';
                 }
             });
         }

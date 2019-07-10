@@ -10,12 +10,17 @@ const ProductList = {
       {{ error }}
     </div>
 
+    <button class="add">
+    <router-link class="add"  to=product/product-add>Ajouter produit</router-link>
+    </button>
+
     <!-- on vérifie que products n'est pas vide, et puis on boucle avec v-for sur un tableau d'objet "item" -->
     <ul v-if="products" id="example-1">
         <li v-for="item in products">
             <router-link :to="{ name: 'product-detail', params: { id: item.id_product }}">{{ item.name }} </router-link>
         </li>
     </ul>
+       
   </div>
 `,
 

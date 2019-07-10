@@ -1,0 +1,40 @@
+etapes a suivre erp:
+//modifier fichier js ajouter product ainsi que fichier main
+
+supprimer page delete et creer fonction delete product et renvoyer vers page list
+
+//page edit produit:(recuperer les valeurs de l api avant de modifier creer methode infos produit envoyer id)
+voir loading2 pour patienter le v-disable boutton bloquer le bouton puis afficher loading pour envoyer qu une seul fois
+//item{} declarer les pd en variable 
+//+variable message"le pd a bien été modifier",
+//remplir les champs input avec les valeurs axios get pour les recevoir et les reafficher avec html ex nom input  v-model=item.nom pour lier 
+//params append 'id'.this.params.id ensuite params appens name.this.item.name.....
+//attention tenir compte de la reponse du serveur si statut success alors ok produit bien modifie faire condition si status=success
+//else return error  probleme pour contacter l api (tjrs interpreter les reponses de l api )!!!
+//axios.catch error.message tjrs informer l utilisateur !!!
+
+
+//dl.sirius-school/vue-product.zip
+//page ajouter
+//on declare un objet{}
+//on ajoute v-model
+//if name!= ref ...
+//on recoit id 
+//renvoyer a l api les valeurs recuperer
+//methode insertproduct
+//page list assigne [] a products et assignee valeur this products =.....
+
+!!!!  de quoi ai-je besoin comme variable, fonction ,methode.....
+
+v2 produit producteur client equipe
+v2 api 
+api.sirius-school.be/product-v2/
+remplace item par product action list
+/item ex team /action 
+supprimer equipe ex: team/delete
+
+demander retour liste apres ex 1500 sec
+
+mix acide 
+levure
+miel

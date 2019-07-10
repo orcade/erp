@@ -40,11 +40,11 @@ const ProductEdit = {
     </form>
 
         <div>
-            <button @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier le produit
+            <button class="edit" @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier le produit
             </button>
 
         <button class="return">
-        <router-link  to="/">Retour</router-link>
+        <router-link class="return" to="/">Retour</router-link>
         </button>
 
         </div>
@@ -69,8 +69,8 @@ const ProductEdit = {
             this.fetchData();
             this.sendModif();
         },
-        
-    
+
+
         methods: {
 
             fetchData() {
@@ -83,7 +83,7 @@ const ProductEdit = {
                     this.item = response.data.product;
                 });
             },
-        
+
 
 
             sendModif() {
@@ -93,14 +93,14 @@ const ProductEdit = {
                 params.append('ref', this.item.ref);
                 params.append('qty', this.item.qty);
                 params.append('price', this.item.price);
-    
+
                 axios.post('http://files.sirius-school.be/products-api/?action=updateProduct', params).then(response => {
                     console.log(response);
                     this.loading = false;
-    
+
                     //this.item = response.data.product;
                     //console.log(response);
-    
+
                     if(response.data.status == 'success') {
                         this.message = 'Produit mis à jour';
                     }
@@ -112,4 +112,3 @@ const ProductEdit = {
             }
         }
     }
-    

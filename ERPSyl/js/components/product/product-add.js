@@ -28,12 +28,12 @@ const ProductAdd = {
         <div>
             <button class="valider" v-on:click="sendModif">Valider</button>
 
-            <button>
+            <button class= "valider">
             <router-link class= "valider" to="/product/product-list">Retour</router-link>
-            <button>
+            </button>
         </div>
     </div>
-  
+
 
     {{ message }}
 </div>
